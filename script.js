@@ -2,7 +2,6 @@
 /* =========================================
 FIREBASE
 ========================================= */
-
 const firebaseConfig = {
 apiKey: "AIzaSyBwnZL3GExelY7rkNMJeUimjKxqCTRqbMg",
 authDomain: "gaji-853e4.firebaseapp.com",
@@ -11,6 +10,7 @@ storageBucket: "gaji-853e4.firebasestorage.app",
 messagingSenderId: "833894034111",
 appId: "1:833894034111:web"
 };
+
 
 /* =========================================
 SUARA OTOMATIS
