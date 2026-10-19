@@ -383,6 +383,12 @@ async function hapus(col, id, emoji, teks) {
     toast("❌ Gagal menghapus data");
   }
 }
+  const sandi = prompt("🔐 Masukkan sandi untuk menerima gaji:");
+
+  if (sandi !== "SMS") {
+    toast("❌ Sandi salah");
+    return;
+  }
 
 /* =========================================
    GAJI DITERIMA
