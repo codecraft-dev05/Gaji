@@ -389,8 +389,9 @@ async function hapus(col, id, emoji, teks) {
    GAJI DITERIMA
 ========================================= */
 
-async function 
+async function Gaji diterima () {
   const h = hitung();
+}
 
   if (h.jml === 0 && h.kasbon === 0) {
     toast("⚠️ Belum ada data untuk digaji");
