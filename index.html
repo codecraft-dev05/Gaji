@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sinar Mulia Sablon - Kalkulator Gaji</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HALAMAN PEMBUKA -->
+<section id="landing">
+  <div class="float" style="top:8%;left:10%">🧋</div>
+  <div class="float" style="top:15%;right:12%;animation-delay:1s">🎨</div>
+  <div class="float" style="top:48%;left:5%;animation-delay:2s">☕</div>
+  <div class="float" style="bottom:18%;right:8%;animation-delay:3s">💰</div>
+  <div class="float" style="bottom:8%;left:18%;animation-delay:1.5s">✨</div>
+
+  <div class="logo">🖨️</div>
+  <div class="welcome">SELAMAT DATANG DI</div>
+  <div class="brand">SINAR MULIA</div>
+  <div class="sub">SABLON</div>
+  <div class="badge">📋 KALKULATOR GAJI &amp; PENCATATAN KERJA</div>
+  <p class="desc">Kelola pekerjaan, kasbon, pendapatan, cafe, dan gaji dalam satu aplikasi.</p>
+  <div class="tagline">Kerja Lebih Mudah<br><span>Hasil Lebih Baik</span> 🌟</div>
+  <button class="start" onclick="masuk()">🚀 &nbsp;MULAI SEKARANG &nbsp;→</button>
+  <div class="foot">SINAR MULIA SABLON</div>
+</section>
+
+<!-- APLIKASI -->
+<section id="app" class="hidden">
+  <header>
+    <div class="em">🖨️</div>
+    <div>
+      <h1>SINAR MULIA SABLON</h1>
+      <small>Kalkulator Gaji</small>
+    </div>
+    <div class="mode" id="modeLabel">⏳</div>
+  </header>
+
+  <main>
+    <!-- A. PEMESANAN -->
+    <div class="page active" id="p-pesan">
+      <h2>📦 Pemesanan</h2>
+      <div class="card">
+        <label>☕ Pilih Cafe</label>
+        <select id="selCafe"></select>
+
+        <label>🥤 Jumlah Cup</label>
+        <input type="number" id="inCup" inputmode="numeric" placeholder="contoh: 500" min="1">
+
+        <div class="preview" id="prevHitung">Pilih cafe &amp; isi jumlah cup</div>
+        <button class="btn" onclick="tambahPesanan()">➕ Simpan Pesanan</button>
+      </div>
+
+      <h2 style="font-size:16px">🧾 Daftar Pesanan</h2>
+      <div id="listPesan"></div>
+    </div>
+
+    <!-- B. PENDAPATAN -->
+    <div class="page" id="p-pendapatan">
+      <h2>💵 Pendapatan</h2>
+
+      <div class="big green">
+        <div class="l">TOTAL PENDAPATAN</div>
+        <div class="n" id="pdTotal">Rp0</div>
+        <div class="l" id="pdPesanan">0 pesanan</div>
+      </div>
+
+      <div class="grid2">
+        <div class="stat">
+          <div class="l">🥤 Total Cup</div>
+          <div class="n" id="pdCup">0</div>
+        </div>
+        <div class="stat">
+          <div class="l">📦 Pesanan</div>
+          <div class="n" id="pdJml">0</div>
+        </div>
+      </div>
+
+      <h2 style="font-size:16px;margin-top:18px">📊 Per Cafe</h2>
+      <div id="pdCafe"></div>
+    </div>
+
+    <!-- C. KASBON -->
+    <div class="page" id="p-kasbon">
+      <h2>💸 Kasbon</h2>
+
+      <div class="card">
+        <label>💰 Jumlah Kasbon (Rp)</label>
+        <input type="number" id="inKasbon" inputmode="numeric" placeholder="contoh: 100000" min="1">
+        <button class="btn" onclick="tambahKasbon()">➕ Simpan Kasbon</button>
+      </div>
+
+      <div class="big">
+        <div class="l">TOTAL KASBON</div>
+        <div class="n" id="ksTotal">Rp0</div>
+      </div>
+
+      <div id="listKasbon"></div>
+    </div>
+
+    <!-- D. TAMBAH CAFE -->
+    <div class="page" id="p-cafe">
+      <h2>🏪 Tambah Cafe Baru</h2>
+
+      <div class="card">
+        <label>☕ Nama Cafe</label>
+        <input type="text" id="inCafe" placeholder="contoh: Kopi Senja">
+
+        <label>💲 Tarif per Cup (Rp)</label>
+        <input type="number" id="inTarif" inputmode="numeric" value="50" min="1">
+
+        <button class="btn" onclick="tambahCafe()">➕ Simpan Cafe</button>
+      </div>
+
+      <h2 style="font-size:16px">📍 Daftar Cafe</h2>
+      <div id="listCafe"></div>
+    </div>
+
+    <!-- E. GAJI -->
+    <div class="page" id="p-gaji">
+      <h2>🧮 Gaji</h2>
+
+      <div class="big">
+        <div class="l">GAJI SAAT INI</div>
+        <div class="n" id="gjGaji">Rp0</div>
+        <div class="l">Pendapatan − Kasbon</div>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <span>🥤 Total Cup</span>
+          <span id="gjCup">0</span>
+        </div>
+        <div class="row">
+          <span>📦 Jumlah Pesanan</span>
+          <span id="gjJml">0</span>
+        </div>
+        <div class="row">
+          <span>💵 Pendapatan</span>
+          <span class="plus" id="gjPd">Rp0</span>
+        </div>
+        <div class="row">
+          <span>💸 Kasbon</span>
+          <span class="minus" id="gjKs">- Rp0</span>
+        </div>
+        <div class="row" style="font-size:18px">
+          <b>✅ Gaji</b>
+          <b id="gjGaji2">Rp0</b>
+        </div>
+      </div>
+
+      <button class="btn green" onclick="gajiDiterima()">✅ GAJI DITERIMA</button>
+
+      <p style="color:var(--muted);font-size:12px;text-align:center;margin-top:10px;line-height:1.5">
+        Data pemesanan, pendapatan &amp; kasbon baru di-reset setelah tombol ini ditekan. Daftar cafe tetap aman 🔒
+      </p>
+    </div>
+
+    <!-- F. RIWAYAT -->
+    <div class="page" id="p-riwayat">
+      <h2>📜 Riwayat Gaji</h2>
+      <div id="listRiwayat"></div>
+    </div>
+  </main>
+ 
+
+  <!-- NAVIGASI -->
+  <nav id="nav">
+    <button class="active" data-p="pesan"><span>📦</span>Pesan</button>
+    <button data-p="pendapatan"><span>💵</span>Pendapatan</button>
+    <button data-p="kasbon"><span>💸</span>Kasbon</button>
+    <button data-p="cafe"><span>🏪</span>Cafe</button>
+    <button data-p="gaji"><span>🧮</span>Gaji</button>
+    <button data-p="riwayat"><span>📜</span>Riwayat</button>
+  </nav>
+</section>
+
+<!-- MODAL KONFIRMASI -->
+<div id="modal" class="hidden">
+  <div class="mbox">
+    <div class="e" id="mE">❓</div>
+    <p id="mT"></p>
+    <div class="mbtn">
+      <button class="no" id="mNo">Batal</button>
+      <button class="yes" id="mYes">Ya</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFIKASI -->
+<div id="toast"></div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<!-- JAVASCRIPT UTAMA -->
+<script src="script.js"></script>
+
+</body>
+</html>
