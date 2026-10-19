@@ -390,6 +390,12 @@ async function hapus(col, id, emoji, teks) {
 ========================================= */
 
 async function gajiDiterima() {
+ const sandi = prompt("🔐 Masukkan sandi untuk menerima gaji:");
+
+if (sandi !== "SMS") {
+  toast("❌ Sandi salah");
+  return;
+}
   const h = hitung();
 
   if (h.jml === 0 && h.kasbon === 0) {
