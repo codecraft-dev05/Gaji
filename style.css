@@ -91,32 +91,4 @@ nav button.active span{transform:translateY(-3px) scale(1.2)}
 .mbtn .no{background:var(--card2)}
 .mbtn .yes{background:linear-gradient(90deg,var(--p1),var(--p2))}
 #toast{position:fixed;left:50%;bottom:100px;transform:translateX(-50%) translateY(30px);background:#fff;color:#111;padding:12px 20px;border-radius:30px;font-weight:700;opacity:0;transition:.3s;z-index:60;pointer-events:none;max-width:90%;text-align:center}
-#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-/* MODAL SANDI GAJI */
-#modalSandi{
-  position:fixed;
-  inset:0;
-  background:#000a;
-  z-index:55;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-}
-
-#modalSandi .mbox{
-  background:var(--card);
-  border-radius:20px;
-  padding:22px;
-  max-width:340px;
-  width:100%;
-  text-align:center;
-}
-
-#modalSandi input{
-  width:100%;
-  margin-bottom:12px;
-  text-align:center;
-  letter-spacing:4px;
-  font-weight:800;
-}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(
