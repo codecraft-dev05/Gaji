@@ -429,20 +429,16 @@ if (sandi !== "SMS") {
 
     toast("🎉 Gaji diterima! Data di-reset");
 
-    const ucapanPesanan = namaCafeSelesai
-      .map(nama => "Pesanan Cafe " + nama + " telah selesai.")
-      .join(" ");
-
-    suara(
-      (ucapanPesanan ? ucapanPesanan + " " : "") +
-      "Terima kasih, Gilang! Gaji sudah diterima. " +
-      "Kerja bagus hari ini. Semoga selalu semangat dan sukses!"
-    );
+suara("Terima kasih, Gilang! Gaji sudah diterima. " +
+  "Kerja bagus hari ini. Semoga selalu semangat dan sukses!);
+        
+    
   } catch (error) {
     console.error(error);
     toast("❌ Gagal menyimpan penerimaan gaji");
   }
 }
+
 
 /* =========================================
    HITUNG DATA
